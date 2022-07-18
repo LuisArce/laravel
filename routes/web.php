@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\PostController;
-use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +18,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-//Route::resource('post', PostController::class);
-Route::get('post', [PostController::class, 'index']);
+
+Route::resource('post', PostController::class);
+Route::resource('category', CategoryController::class);
+/* Route::get('post', [PostController::class, 'index']);
 Route::get('post/{post}', [PostController::class, 'create']);
 
 Route::post('post', [PostController::class, 'store']);
 Route::put('post/{post}', [PostController::class, 'update']);
-
+*/
